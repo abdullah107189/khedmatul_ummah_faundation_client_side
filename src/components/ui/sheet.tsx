@@ -1,0 +1,20 @@
+"use client";
+
+import { ReactNode } from "react";
+
+interface SheetProps {
+  open: boolean;
+  onClose: () => void;
+  children: ReactNode;
+}
+
+export function Sheet({ open, onClose, children }: SheetProps) {
+  if (!open) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 md:hidden" aria-modal="true" role="dialog">
+      <button className="absolute inset-0 bg-slate-900/50" onClick={onClose} aria-label="বন্ধ করুন" />
+      <div className="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-white p-5 shadow-xl">{children}</div>
+    </div>
+  );
+}
