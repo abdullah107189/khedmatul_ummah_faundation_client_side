@@ -1,20 +1,21 @@
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+import PageHero from "@/components/sections/PageHero";
+import VolunteerRegistrationForm from "@/components/sections/VolunteerRegistrationForm";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "স্বেচ্ছাসেবক",
+  description: "খিদমাতুল উম্মাহ ফাউন্ডেশনের স্বেচ্ছাসেবক নিবন্ধন ফর্ম।",
+});
 
 export default function VolunteerPage() {
   return (
-    <div className="space-y-6 py-6">
-      <section className="rounded-xl border bg-white p-6">
-        <h1 className="text-2xl font-bold">স্বেচ্ছাসেবক হোন</h1>
-        <p className="mt-2 text-sm text-slate-600">আপনার সময়, দক্ষতা ও প্রচেষ্টা কারো জীবনে পরিবর্তন আনতে পারে।</p>
-      </section>
-      <section className="space-y-3 rounded-xl border bg-white p-6">
-        <Input placeholder="নাম" />
-        <Input placeholder="ফোন" />
-        <Input placeholder="জেলা" />
-        <Input placeholder="আগ্রহের ক্ষেত্র" />
-        <Button>আবেদন জমা দিন</Button>
-      </section>
+    <div className="space-y-12 pb-12">
+      <PageHero
+        title="স্বেচ্ছাসেবক নিবন্ধন"
+        description="ব্যক্তিগত তথ্য, ঠিকানা, শিক্ষাগত তথ্য, সামাজিক যোগাযোগ এবং পূর্ব অভিজ্ঞতাসহ পূর্ণাঙ্গ স্বেচ্ছাসেবক নিবন্ধন ফর্ম।"
+      />
+      <VolunteerRegistrationForm />
     </div>
   );
 }

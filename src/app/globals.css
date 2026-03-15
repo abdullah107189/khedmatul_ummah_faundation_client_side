@@ -3,14 +3,47 @@
 @tailwind utilities;
 
 :root {
-  --background: 248 250 252;
+  --background: 245 248 242;
   --foreground: 15 23 42;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  @apply bg-slate-50 text-slate-900 antialiased;
+  @apply bg-[#f5f8f2] text-slate-900 antialiased;
+  font-family: "Hind Siliguri", "Noto Sans Bengali", system-ui, sans-serif;
+  background-image:
+    radial-gradient(circle at top right, rgba(16, 185, 129, 0.08), transparent 22%),
+    linear-gradient(180deg, rgba(255, 251, 235, 0.4), rgba(245, 248, 242, 1));
 }
 
 .container-app {
-  @apply mx-auto w-full max-w-6xl px-4 md:px-6 lg:px-8;
+  @apply mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8;
+}
+
+@layer utilities {
+  .surface-pattern {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+      radial-gradient(circle at 1px 1px, rgba(5, 150, 105, 0.12) 1px, transparent 0);
+    background-size: auto, 22px 22px;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.6s ease-out both;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

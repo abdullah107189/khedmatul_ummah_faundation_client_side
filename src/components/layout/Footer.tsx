@@ -1,32 +1,45 @@
 import Link from "next/link";
+import { CONTACT_INFO, DONATE_INFO, NAV_ITEMS, SITE_META } from "@/data/site";
 
 export default function Footer() {
   return (
-    <footer className="mt-12 border-t bg-white">
-      <div className="container-app grid gap-8 py-10 text-sm md:grid-cols-4">
-        <div>
-          <h3 className="font-semibold">খেদমাতুল উম্মাহ</h3>
-          <p className="mt-2 text-slate-600">স্বচ্ছ ও আমানতদার মানবসেবায় আমরা কাজ করি।</p>
+    <footer className="border-t border-emerald-100 bg-[linear-gradient(180deg,_rgba(255,255,255,0.96),_rgba(240,253,244,0.96))]">
+      <div className="container-app grid gap-8 py-14 md:grid-cols-2 xl:grid-cols-4">
+        <div className="space-y-4">
+          <h3 className="text-xl font-bold text-slate-900">{SITE_META.name}</h3>
+          <p className="text-sm leading-7 text-slate-600">{SITE_META.description}</p>
         </div>
+
         <div>
-          <h3 className="font-semibold">কুইক লিংক</h3>
-          <div className="mt-2 space-y-1 text-slate-600">
-            <Link href="/projects" className="block hover:text-primary">প্রকল্পসমূহ</Link>
-            <Link href="/updates" className="block hover:text-primary">আপডেট</Link>
-            <Link href="/donate" className="block hover:text-primary">দান করুন</Link>
+          <h3 className="text-lg font-semibold text-slate-900">নেভিগেশন</h3>
+          <div className="mt-4 space-y-2 text-sm text-slate-600">
+            {NAV_ITEMS.map((item) => (
+              <Link key={item.href} href={item.href} className="block transition hover:text-emerald-700">
+                {item.label}
+              </Link>
+            ))}
           </div>
         </div>
-        <div>
-          <h3 className="font-semibold">যোগাযোগ</h3>
-          <p className="mt-2 text-slate-600">ফোন: 01700-000000</p>
-          <p className="text-slate-600">ইমেইল: info@kuf.org</p>
+
+        <div className="space-y-3 text-sm text-slate-600">
+          <h3 className="text-lg font-semibold text-slate-900">যোগাযোগ</h3>
+          <p>মোবাইল: {CONTACT_INFO.mobile}</p>
+          <p>হোয়াটসঅ্যাপ: {CONTACT_INFO.whatsapp}</p>
+          <p className="leading-7">অফিস: {CONTACT_INFO.officeAddress}</p>
         </div>
-        <div>
-          <h3 className="font-semibold">দ্রুত দান (QR)</h3>
-          <div className="mt-2 h-20 w-20 rounded-md border bg-slate-100" />
+
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold text-slate-900">দান তথ্য</h3>
+          <div className="rounded-[1.5rem] border border-emerald-100 bg-white p-4 text-sm text-slate-600 shadow-sm">
+            <p>বিকাশ: {DONATE_INFO.bkash}</p>
+            <p className="mt-2">নগদ: {DONATE_INFO.nagad}</p>
+            <p className="mt-4 text-xs text-amber-700">{DONATE_INFO.note}</p>
+          </div>
         </div>
       </div>
-      <div className="border-t py-4 text-center text-xs text-slate-500">© {new Date().getFullYear()} খেদমাতুল উম্মাহ ফাউন্ডেশন</div>
+      <div className="border-t border-emerald-100 py-4 text-center text-xs text-slate-500">
+        © {new Date().getFullYear()} {SITE_META.name}
+      </div>
     </footer>
   );
 }
