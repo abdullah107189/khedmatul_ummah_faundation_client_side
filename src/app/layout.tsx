@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
 import "@/styles/dashboard.css";
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Providers from "@/components/layout/Providers";
+
 import { SITE_META } from "@/data/site";
 import { buildMetadata } from "@/lib/seo";
 
@@ -19,10 +21,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers>
           <div className="flex min-h-screen flex-col">
             <Navbar />
+
             <main className="flex-1">
               <div className="container-app py-6 md:py-8">{children}</div>
             </main>
+
             <Footer />
+
+            {/* Structured Data */}
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "Organization",
+                  name: SITE_META.name,
+                  url: SITE_META.url,
+                }),
+              }}
+            />
           </div>
         </Providers>
       </body>

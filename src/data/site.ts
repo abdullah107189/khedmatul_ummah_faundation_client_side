@@ -17,8 +17,9 @@ export const SITE_META = {
   description:
     "খিদমাতুল উম্মাহ ফাউন্ডেশন একটি মানবিক ও ইসলামিক সেবামূলক প্রতিষ্ঠান, যা শিক্ষা, সংস্কৃতি, সেবা ও দাওয়াহ কার্যক্রমের মাধ্যমে সমাজের কল্যাণে কাজ করে।",
   slogan: "মানবসেবায় ঈমানি অঙ্গীকার, উম্মাহর কল্যাণে সমন্বিত উদ্যোগ",
+  url: "https://yourdomain.com",
+  ogImage: "/ummah_logo.svg",
 };
-
 export const NAV_ITEMS: NavItem[] = [
   { label: "হোম", href: "/" },
   { label: "আমাদের সম্পর্কে", href: "/about" },
