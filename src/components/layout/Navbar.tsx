@@ -34,24 +34,25 @@ export default function Navbar() {
       <div className="container-app flex h-16 items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100">
-            <Image
-              src="/ummah_logo.svg"
-              alt="খিদমাতুল উম্মাহ"
-              width={26}
-              height={26}
-            />
-          </div>
-          <div className="hidden sm:block leading-tight">
-            <p className="text-sm font-semibold text-slate-900">
-              খিদমাতুল উম্মাহ
-            </p>
-            <p className="text-xs text-muted-foreground">
-              মানবিক ও দ্বীনি সেবার প্ল্যাটফর্ম
-            </p>
-          </div>
-        </Link>
+       {/* Logo */}
+                  <Link href="/" className="flex items-start gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100">
+                      <Image
+                        src="/ummah_logo.svg"
+                        alt="খিদমাতুল উম্মাহ"
+                        width={26}
+                        height={26}
+                      />
+                    </div>
+                    <div className="leading-tight text-start">
+                      <p className="text-sm font-semibold text-slate-900">
+                        খিদমাতুল উম্মাহ
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        মানবিক ও দ্বীনি সেবার প্ল্যাটফর্ম
+                      </p>
+                    </div>
+                  </Link>
 
         {/* Desktop Menu */}
         <nav className="hidden lg:flex items-center gap-2">
@@ -123,8 +124,25 @@ export default function Navbar() {
 
                 {/* Header */}
                 <DrawerHeader className="border-b">
-                  <DrawerTitle>মেনু</DrawerTitle>
-                  <DrawerDescription>সব বিভাগ</DrawerDescription>
+                  {/* Logo */}
+                  <Link href="/" className="flex items-start gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100">
+                      <Image
+                        src="/ummah_logo.svg"
+                        alt="খিদমাতুল উম্মাহ"
+                        width={26}
+                        height={26}
+                      />
+                    </div>
+                    <div className="leading-tight text-start">
+                      <p className="text-sm font-semibold text-slate-900">
+                        খিদমাতুল উম্মাহ
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        মানবিক ও দ্বীনি সেবার প্ল্যাটফর্ম
+                      </p>
+                    </div>
+                  </Link>
                 </DrawerHeader>
 
                 {/* Scrollable Links */}
