@@ -4,8 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
-import { Sheet } from "@/components/ui/sheet";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerTrigger,
+  DrawerClose
+} from "@/components/ui/drawer";
+
 import { NAV_LINKS } from "@/lib/constants";
 
 function isActive(pathname: string, href: string) {
@@ -18,36 +30,52 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-emerald-100 bg-white/90 backdrop-blur">
-      <nav className="container-app flex items-center justify-between gap-4 py-3">
+    <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-lg">
+      <div className="container-app flex h-16 items-center justify-between">
+
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 ring-1 ring-emerald-100">
-            <Image src="/ummah_logo.svg" alt="খিদমাতুল উম্মাহ ফাউন্ডেশন" width={34} height={34} />
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100">
+            <Image
+              src="/ummah_logo.svg"
+              alt="খিদমাতুল উম্মাহ"
+              width={26}
+              height={26}
+            />
           </div>
-          <div className="hidden sm:block">
-            <p className="text-sm font-semibold text-slate-900">খিদমাতুল উম্মাহ</p>
-            <p className="text-xs text-slate-500">মানবিক ও দ্বীনি সেবার প্ল্যাটফর্ম</p>
+          <div className="hidden sm:block leading-tight">
+            <p className="text-sm font-semibold text-slate-900">
+              খিদমাতুল উম্মাহ
+            </p>
+            <p className="text-xs text-muted-foreground">
+              মানবিক ও দ্বীনি সেবার প্ল্যাটফর্ম
+            </p>
           </div>
         </Link>
 
-        <div className="hidden items-center gap-1 lg:flex">
+        {/* Desktop Menu */}
+        <nav className="hidden lg:flex items-center gap-2">
           {NAV_LINKS.map((item) =>
             item.children?.length ? (
-              <div key={item.href} className="group relative">
+              <div key={item.href} className="relative group">
                 <Link
                   href={item.href}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition ${
-                    isActive(pathname, item.href) ? "bg-emerald-50 text-emerald-700" : "text-slate-700 hover:bg-emerald-50"
-                  }`}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition
+                  ${isActive(pathname, item.href)
+                      ? "bg-emerald-100 text-emerald-700"
+                      : "text-slate-700 hover:bg-emerald-50"
+                    }`}
                 >
                   {item.label}
                 </Link>
-                <div className="invisible absolute left-0 top-full mt-3 min-w-52 translate-y-2 rounded-3xl border border-emerald-100 bg-white p-3 opacity-0 shadow-xl transition duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+
+                {/* Dropdown */}
+                <div className="absolute left-0 top-full mt-2 w-56 rounded-xl border bg-white shadow-lg opacity-0 invisible translate-y-2 transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block rounded-2xl px-4 py-3 text-sm text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-700"
+                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
                     >
                       {child.label}
                     </Link>
@@ -58,64 +86,107 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition ${
-                  isActive(pathname, item.href) ? "bg-emerald-50 text-emerald-700" : "text-slate-700 hover:bg-emerald-50"
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition
+                ${isActive(pathname, item.href)
+                    ? "bg-emerald-100 text-emerald-700"
+                    : "text-slate-700 hover:bg-emerald-50"
+                  }`}
               >
                 {item.label}
               </Link>
-            ),
+            )
           )}
-        </div>
+        </nav>
 
+        {/* Right Actions */}
         <div className="flex items-center gap-2">
-          <Link href="/donate" className="hidden sm:block">
-            <Button>দান করুন</Button>
-          </Link>
-          <Button variant="outline" className="lg:hidden" onClick={() => setOpen(true)}>
-            মেনু
-          </Button>
-        </div>
-      </nav>
 
-      <Sheet open={open} onClose={() => setOpen(false)}>
-        <div className="flex h-full flex-col gap-4">
-          <div className="border-b border-emerald-100 pb-4">
-            <p className="text-lg font-semibold text-slate-900">মেনু</p>
-            <p className="text-sm text-slate-500">সাইটের প্রধান বিভাগগুলো</p>
-          </div>
-          <div className="flex-1 space-y-2 overflow-y-auto">
-            {NAV_LINKS.map((item) => (
-              <div key={item.href} className="rounded-2xl border border-emerald-100 bg-white/80 p-2">
-                <Link
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-xl px-3 py-3 text-sm font-medium text-slate-800"
-                >
-                  {item.label}
-                </Link>
-                {item.children?.length ? (
-                  <div className="space-y-1 px-2 pb-2">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        onClick={() => setOpen(false)}
-                        className="block rounded-xl px-3 py-2 text-sm text-slate-600 hover:bg-emerald-50 hover:text-emerald-700"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            ))}
-          </div>
-          <Link href="/donate" onClick={() => setOpen(false)}>
-            <Button className="w-full">এখনই দান করুন</Button>
+          {/* Donate */}
+          <Link href="/donate" className="hidden sm:block">
+            <Button className="rounded-full px-5">
+              দান করুন
+            </Button>
           </Link>
+
+          {/* Mobile Drawer Trigger */}
+          <Drawer open={open} onOpenChange={setOpen} direction="left">
+            <DrawerTrigger asChild>
+              <Button variant="outline" className="lg:hidden">
+                <Menu size={20} />
+              </Button>
+            </DrawerTrigger>
+
+            {/* Drawer Content */}
+            <DrawerContent className="h-full max-w-[300px]">
+
+              <div className="flex flex-col h-full">
+
+                {/* Header */}
+                <DrawerHeader className="border-b">
+                  <DrawerTitle>মেনু</DrawerTitle>
+                  <DrawerDescription>সব বিভাগ</DrawerDescription>
+                </DrawerHeader>
+
+                {/* Scrollable Links */}
+                <div className="flex-1 overflow-y-auto p-4 space-y-2">
+
+                  {NAV_LINKS.map((item) => (
+                    <div key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className={`block px-3 py-2 rounded-md text-sm font-medium transition
+                        ${isActive(pathname, item.href)
+                            ? "bg-emerald-100 text-emerald-700"
+                            : "text-slate-800 hover:bg-emerald-50"
+                          }`}
+                      >
+                        {item.label}
+                      </Link>
+
+                      {item.children?.length && (
+                        <div className="ml-3 mt-1 space-y-1">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={() => setOpen(false)}
+                              className={`block px-3 py-1.5 text-sm rounded-md
+                              ${isActive(pathname, child.href)
+                                  ? "text-emerald-700"
+                                  : "text-muted-foreground hover:text-emerald-700"
+                                }`}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+
+                </div>
+
+                {/* Footer CTA */}
+                <DrawerFooter className="border-t flex flex-col gap-2">
+                  <Link href="/donate" onClick={() => setOpen(false)}>
+                    <Button className="w-full rounded-full">
+                      এখনই দান করুন
+                    </Button>
+                  </Link>
+
+                  <DrawerClose asChild>
+                    <Button variant="outline">বন্ধ করুন</Button>
+                  </DrawerClose>
+                </DrawerFooter>
+
+              </div>
+
+            </DrawerContent>
+          </Drawer>
+
         </div>
-      </Sheet>
+      </div>
     </header>
   );
 }
