@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import GalleryGrid from "@/components/sections/GalleryGrid";
+import MediaVideoShowcase from "@/components/sections/MediaVideoShowcase";
 import PageHero from "@/components/sections/PageHero";
 import SectionHeading from "@/components/sections/SectionHeading";
 import { MEDIA_GALLERY, MEDIA_VIDEOS } from "@/data/site";
@@ -26,27 +27,10 @@ export default function MediaPage() {
       <section className="space-y-8">
         <SectionHeading
           eyebrow="ভিডিও গ্যালারি"
-          title="ভিডিও কনটেন্টের জন্য প্রস্তুত ব্লক"
-          description="বর্তমানে নমুনা কনটেন্ট দেখানো হয়েছে। পরবর্তী সময়ে ভিডিও সংযোজন, থাম্বনেইল আপলোড এবং বিভাগভিত্তিক ফিল্টার যুক্ত করা যাবে।"
+          title="ভিডিও কনটেন্ট"
+          description="ভিডিও কার্ডে ক্লিক করলে একই ওয়েবসাইটের ভেতরেই মডাল ওপেন হবে এবং সেখানেই ভিডিও দেখা যাবে।"
         />
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {MEDIA_VIDEOS.map((video) => (
-            <article key={video.title} className="overflow-hidden rounded-[1.75rem] border border-emerald-100 bg-white shadow-sm">
-              <div className="surface-pattern flex aspect-video items-center justify-center bg-emerald-50 text-5xl text-emerald-700">
-                ▶
-              </div>
-              <div className="space-y-3 p-6">
-                <div className="flex items-center justify-between gap-4">
-                  <h3 className="text-lg font-semibold text-slate-900">{video.title}</h3>
-                  <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
-                    {video.duration}
-                  </span>
-                </div>
-                <p className="text-sm leading-7 text-slate-600">{video.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+        <MediaVideoShowcase videos={MEDIA_VIDEOS} />
       </section>
 
       <section className="space-y-8">

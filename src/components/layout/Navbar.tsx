@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -12,10 +12,9 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
-  DrawerDescription,
   DrawerFooter,
   DrawerTrigger,
-  DrawerClose
+  DrawerClose,
 } from "@/components/ui/drawer";
 
 import { NAV_LINKS } from "@/lib/constants";
@@ -32,27 +31,26 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-lg">
       <div className="container-app flex h-16 items-center justify-between">
-
         {/* Logo */}
-       {/* Logo */}
-                  <Link href="/" className="flex items-start gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100">
-                      <Image
-                        src="/ummah_logo.svg"
-                        alt="খিদমাতুল উম্মাহ"
-                        width={26}
-                        height={26}
-                      />
-                    </div>
-                    <div className="leading-tight text-start">
-                      <p className="text-sm font-semibold text-slate-900">
-                        খিদমাতুল উম্মাহ
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        মানবিক ও দ্বীনি সেবার প্ল্যাটফর্ম
-                      </p>
-                    </div>
-                  </Link>
+        {/* Logo */}
+        <Link href="/" className="flex items-start gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl ">
+            <Image
+              src="/ummah_logo.svg"
+              alt="খিদমাতুল উম্মাহ"
+              width={36}
+              height={36}
+            />
+          </div>
+          <div className="leading-tight text-start">
+            <p className="text-sm font-semibold text-slate-900">
+              খিদমাতুল উম্মাহ
+            </p>
+            <p className="text-xs text-muted-foreground">
+              মানবিক ও দ্বীনি সেবার প্ল্যাটফর্ম
+            </p>
+          </div>
+        </Link>
 
         {/* Desktop Menu */}
         <nav className="hidden lg:flex items-center gap-2">
@@ -62,10 +60,11 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition
-                  ${isActive(pathname, item.href)
+                  ${
+                    isActive(pathname, item.href)
                       ? "bg-emerald-100 text-emerald-700"
                       : "text-slate-700 hover:bg-emerald-50"
-                    }`}
+                  }`}
                 >
                   {item.label}
                 </Link>
@@ -88,25 +87,23 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition
-                ${isActive(pathname, item.href)
+                ${
+                  isActive(pathname, item.href)
                     ? "bg-emerald-100 text-emerald-700"
                     : "text-slate-700 hover:bg-emerald-50"
-                  }`}
+                }`}
               >
                 {item.label}
               </Link>
-            )
+            ),
           )}
         </nav>
 
         {/* Right Actions */}
         <div className="flex items-center gap-2">
-
           {/* Donate */}
           <Link href="/donate" className="hidden sm:block">
-            <Button className="rounded-full px-5">
-              দান করুন
-            </Button>
+            <Button className="rounded-full px-5">দান করুন</Button>
           </Link>
 
           {/* Mobile Drawer Trigger */}
@@ -119,11 +116,10 @@ export default function Navbar() {
 
             {/* Drawer Content */}
             <DrawerContent className="h-full max-w-[300px]">
-
               <div className="flex flex-col h-full">
-
                 {/* Header */}
                 <DrawerHeader className="border-b">
+                  <DrawerTitle className="sr-only">মোবাইল নেভিগেশন মেনু</DrawerTitle>
                   {/* Logo */}
                   <Link href="/" className="flex items-start gap-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100">
@@ -147,17 +143,17 @@ export default function Navbar() {
 
                 {/* Scrollable Links */}
                 <div className="flex-1 overflow-y-auto p-4 space-y-2">
-
                   {NAV_LINKS.map((item) => (
                     <div key={item.href}>
                       <Link
                         href={item.href}
                         onClick={() => setOpen(false)}
                         className={`block px-3 py-2 rounded-md text-sm font-medium transition
-                        ${isActive(pathname, item.href)
+                        ${
+                          isActive(pathname, item.href)
                             ? "bg-emerald-100 text-emerald-700"
                             : "text-slate-800 hover:bg-emerald-50"
-                          }`}
+                        }`}
                       >
                         {item.label}
                       </Link>
@@ -170,10 +166,11 @@ export default function Navbar() {
                               href={child.href}
                               onClick={() => setOpen(false)}
                               className={`block px-3 py-1.5 text-sm rounded-md
-                              ${isActive(pathname, child.href)
+                              ${
+                                isActive(pathname, child.href)
                                   ? "text-emerald-700"
                                   : "text-muted-foreground hover:text-emerald-700"
-                                }`}
+                              }`}
                             >
                               {child.label}
                             </Link>
@@ -182,7 +179,6 @@ export default function Navbar() {
                       )}
                     </div>
                   ))}
-
                 </div>
 
                 {/* Footer CTA */}
@@ -197,12 +193,9 @@ export default function Navbar() {
                     <Button variant="outline">বন্ধ করুন</Button>
                   </DrawerClose>
                 </DrawerFooter>
-
               </div>
-
             </DrawerContent>
           </Drawer>
-
         </div>
       </div>
     </header>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import DonationProgressCard from "@/components/sections/DonationProgressCard";
 import GalleryGrid from "@/components/sections/GalleryGrid";
 import PageHero from "@/components/sections/PageHero";
 import QrCodePreview from "@/components/sections/QrCodePreview";
@@ -9,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import {
   CONTACT_INFO,
   DONATE_INFO,
-  DONATION_CAMPAIGNS,
   GALLERY_PREVIEW,
   HOME_INTRO,
   PILLARS,
@@ -29,10 +27,11 @@ export default function HomePage() {
       <PageHero
         title={SITE_META.slogan}
         description={HOME_INTRO}
+        backgroundImage="/gallery/home_hero_section.jpeg"
         primaryLabel="দান করুন"
         primaryHref="/donate"
-        secondaryLabel="স্বেচ্ছাসেবক হোন"
-        secondaryHref="/volunteer"
+        secondaryLabel="ফেসবুকে যুক্ত হোন"
+        secondaryHref={CONTACT_INFO.facebook}
       />
 
       <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -94,19 +93,6 @@ export default function HomePage() {
                 আরও জানুন
               </Link>
             </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-8">
-        <SectionHeading
-          eyebrow="দান অগ্রগতি"
-          title="চলমান তহবিল সংগ্রহ"
-          description="লক্ষ্য, সংগ্রহ এবং অগ্রগতি স্পষ্টভাবে দেখানো হচ্ছে যাতে দাতারা চলমান অবস্থা বুঝতে পারেন।"
-        />
-        <div className="grid gap-5 lg:grid-cols-2">
-          {DONATION_CAMPAIGNS.map((campaign) => (
-            <DonationProgressCard key={campaign.title} campaign={campaign} />
           ))}
         </div>
       </section>

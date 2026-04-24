@@ -34,6 +34,9 @@ export interface MediaVideoItem {
   title: string;
   description: string;
   duration: string;
+  url: string;
+  thumbnail: string;
+  videoFile?: string;
 }
 
 export interface TeamMember {

@@ -100,63 +100,104 @@ export const DONATION_CAMPAIGNS: DonationCampaign[] = [
 
 export const GALLERY_PREVIEW: GalleryItem[] = [
   {
-    title: "শীতবস্ত্র বিতরণ",
-    image: "/WhatsApp Image 2026-02-28 at 4.12.52 PM.jpeg",
-    alt: "শীতবস্ত্র বিতরণ কার্যক্রম",
+    title: "ইফতার ও খাদ্য সহায়তা বিতরণ",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.13 AM.jpeg",
+    alt: "ইফতার ও খাদ্য সহায়তা বিতরণ কার্যক্রম",
     category: "সেবা",
   },
   {
-    title: "ইসলামিক শিক্ষার আসর",
-    image: "/WhatsApp1 Image 2026-02-28 at 4.12.52 PM.jpeg",
-    alt: "ইসলামিক শিক্ষা কার্যক্রম",
+    title: "শিক্ষা কার্যক্রমের ক্লাস সেশন",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (3).jpeg",
+    alt: "শিক্ষা কার্যক্রমের ক্লাস সেশন",
     category: "শিক্ষা",
   },
   {
-    title: "খাদ্য সহায়তা বিতরণ",
-    image: "/WhatsApp Image 2026-02-28 at 4.12.55 PM.jpeg",
-    alt: "খাদ্য সহায়তা বিতরণ",
-    category: "সেবা",
+    title: "সামাজিক দাওয়াহ ও আলোচনা",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (10).jpeg",
+    alt: "সামাজিক দাওয়াহ ও আলোচনা আয়োজন",
+    category: "দাওয়াহ",
   },
   {
-    title: "দাওয়াহ প্রচারণা",
-    image: "/WhatsApp2 Image 2026-02-28 at 4.12.55 PM.jpeg",
-    alt: "দাওয়াহ ক্যাম্পেইন",
-    category: "দাওয়াহ",
+    title: "স্থানীয় পরিবারে সেবা পৌঁছে দেওয়া",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (14).jpeg",
+    alt: "স্থানীয় পরিবারে সেবা পৌঁছে দেওয়ার দৃশ্য",
+    category: "সেবা",
   },
 ];
 
 export const MEDIA_GALLERY: GalleryItem[] = [
   ...GALLERY_PREVIEW,
   {
-    title: "মাহফিল আয়োজন",
-    image: "/WhatsApp Image2 2026-02-28 at 4.12.55 PM.jpeg",
-    alt: "মাহফিল আয়োজন",
+    title: "কুরআন তিলাওয়াত ও দোয়া অনুষ্ঠান",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (16).jpeg",
+    alt: "কুরআন তিলাওয়াত ও দোয়া অনুষ্ঠান",
     category: "সংস্কৃতি",
+  },
+  {
+    title: "মাদরাসা শিক্ষার্থীদের সহায়তা",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (18).jpeg",
+    alt: "মাদরাসা শিক্ষার্থীদের সহায়তা কার্যক্রম",
+    category: "শিক্ষা",
+  },
+  {
+    title: "সমন্বয় সভা ও পরিকল্পনা",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (20).jpeg",
+    alt: "সমন্বয় সভা ও পরিকল্পনা",
+    category: "প্রশাসন",
+  },
+  {
+    title: "ফিল্ড ভিজিট ও ডকুমেন্টেশন",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (21).jpeg",
+    alt: "ফিল্ড ভিজিট ও ডকুমেন্টেশন",
+    category: "মিডিয়া",
+  },
+  {
+    title: "স্বেচ্ছাসেবক টিমের প্রস্তুতি",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (22).jpeg",
+    alt: "স্বেচ্ছাসেবক টিমের প্রস্তুতি দৃশ্য",
+    category: "স্বেচ্ছাসেবক",
+  },
+  {
+    title: "সমাপনী দোয়া ও প্রতিফলন",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (24).jpeg",
+    alt: "সমাপনী দোয়া ও প্রতিফলনের ছবি",
+    category: "দাওয়াহ",
+  },
+  {
+    title: "উদ্যোগ বাস্তবায়নের মাঠচিত্র",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (25).jpeg",
+    alt: "উদ্যোগ বাস্তবায়নের মাঠচিত্র",
+    category: "সেবা",
+  },
+  {
+    title: "শিশুদের অংশগ্রহণমূলক সেশন",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (27).jpeg",
+    alt: "শিশুদের অংশগ্রহণমূলক সেশন",
+    category: "শিক্ষা",
+  },
+  {
+    title: "দাতাদের সাথে সমন্বয়",
+    image: "/gallery/WhatsApp Image 2026-04-20 at 8.31.24 AM (28).jpeg",
+    alt: "দাতাদের সাথে সমন্বয় সভা",
+    category: "সমন্বয়",
   },
 ];
 
 export const MEDIA_VIDEOS: MediaVideoItem[] = [
   {
-    title: "মাসিক সেবা প্রতিবেদন",
-    description: "সাম্প্রতিক সেবামূলক উদ্যোগ ও মাঠপর্যায়ের কাজের সংক্ষিপ্ত ভিডিও উপস্থাপনা।",
-    duration: "০৩:১৫",
-  },
-  {
-    title: "স্বেচ্ছাসেবক পরিচিতি",
-    description: "মাঠ পর্যায়ে কাজ করা স্বেচ্ছাসেবকদের অভিজ্ঞতা ও অংশগ্রহণের গল্প।",
-    duration: "০২:৪০",
-  },
-  {
-    title: "শিক্ষা কার্যক্রমের ঝলক",
-    description: "কুরআন শিক্ষা ও মক্তব কার্যক্রমের নির্বাচিত দৃশ্য।",
-    duration: "০৪:১০",
+    title: "সাম্প্রতিক কার্যক্রমের ভিডিও",
+    description: "এই ভিডিওতে ফাউন্ডেশনের মাঠপর্যায়ের কাজ, টিম সমন্বয় এবং সেবামূলক উদ্যোগের ঝলক দেখানো হয়েছে।",
+    duration: "Facebook Reel",
+    url: "https://www.facebook.com/reel/1389286435574752",
+    thumbnail: "/gallery/home_hero_section.jpeg",
+    videoFile: "/videos/foundation-reel.mp4",
   },
 ];
 
 export const CONTACT_INFO: ContactInfo = {
   mobile: "০১৭১২-৩৪৫৬৭৮",
   whatsapp: "০১৭১২-৩৪৫৬৭৮",
-  facebook: "https://facebook.com/khidmatulummahfoundation",
+  facebook: "https://www.facebook.com/profile.php?id=100093416133606",
   officeAddress: "বায়তুল আমান জামে মসজিদ সংলগ্ন, চাঁদপুর সদর, চাঁদপুর, বাংলাদেশ",
   mapQuery: "Chandpur Sadar, Bangladesh",
 };
